@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Developer contributions
+{% endblock %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Developer contributions",
+        href: "/"
+      },
+      {
+        text: "Check"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Check your developer contributions data</h1>
+
+      <p class="govuk-body">Use this service to check your:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>developer agreements</li>
+        <li>developer agreement contributions</li>
+        <li>developer agreement transactions</li>
+      </ul>
+
+      <p class="govuk-body">It runs three tests against your data to ensure you meet the legislative standard:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>are your files in the correct file format</li>
+        <li>do your files contain the required headings</li>
+        <li>does your data conform to the legislated standard</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/upload-your-files",
+        classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+        isStartButton: true
+      }) }}
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+
+      <p class="govuk-body">You can follow the guidance for <a class="govuk-link" href="https://www.gov.uk/guidance/publish-your-developer-contributions-data">publishing your developer contributions data</a> on GOV.UK.</p>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a class="govuk-link" href="https://www.gov.uk/guidance/publish-your-developer-contributions-data">
+                Publish your developer contributions data
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+{% endblock %}
